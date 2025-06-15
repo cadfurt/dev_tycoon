@@ -59,7 +59,7 @@ st.sidebar.header('Filtros de Seleção')
 
 sistema = st.sidebar.selectbox('Sistema', df_sistemas['Sistema'].unique())
 row_sis = df_sistemas[df_sistemas['Sistema'] == sistema].iloc[0]
-aud_cols = ['I', 'T', 'A']
+aud_cols = ['Infantil', 'Todos', 'Adulto']
 aud_opcoes = [c for c in aud_cols if row_sis[c] in ['++', '+++']]
 aud = st.sidebar.selectbox('Público', aud_opcoes)
 
