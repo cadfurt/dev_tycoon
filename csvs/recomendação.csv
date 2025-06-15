@@ -1,7 +1,7 @@
-Gênero;Engine;Jogabilidade;História/Missões;Diálogo;Design_de_Níveis;IA;Design_do_Mundo;Gráfico;Som
-Ação;+++;++;--;---;++;+++;~;+++;++
+Genero;Engine;Jogabilidade;História/Missões;Diálogo;Design_de_Níveis;IA;Design_do_Mundo;Gráfico;Som
+Acao;+++;++;--;---;++;+++;~;+++;++
 Aventura;--;~;+++;+++;~;--;+++;++;~
 RPG;--;++;+++;+++;++;~;+++;++;~
-Simulação;++;+++;~;--;++;+++;~;+++;++
-Estratégia;++;+++;~;--;+++;++;+;~;++
+Simulacao;++;+++;~;--;++;+++;~;+++;++
+Estrategia;++;+++;~;--;+++;++;+;~;++
 Casual;---;+++;--;--;+++;--;--;+++;++

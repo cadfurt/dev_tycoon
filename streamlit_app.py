@@ -47,8 +47,8 @@ def load_data():
     df_recomend = pd.read_csv('csvs/recomendação.csv', sep=';', encoding='latin-1')
     # Renomeia colunas principais
     df_sistemas.rename(columns={df_sistemas.columns[0]: 'Sistema'}, inplace=True)
-    df_generos.rename(columns={df_generos.columns[0]: 'Gênero'}, inplace=True)
-    df_recomend.rename(columns={df_recomend.columns[0]: 'Gênero'}, inplace=True)
+    df_generos.rename(columns={df_generos.columns[0]: 'Genero'}, inplace=True)
+    df_recomend.rename(columns={df_recomend.columns[0]: 'Genero'}, inplace=True)
     return df_sistemas, df_generos, df_recomend
 
 # Carrega dataframes
@@ -63,13 +63,13 @@ aud_cols = ['Infantil', 'Todos', 'Adulto']
 aud_opcoes = [c for c in aud_cols if row_sis[c] in ['++', '+++']]
 aud = st.sidebar.selectbox('Público', aud_opcoes)
 
-tipos = ['Ação','Aventura','RPG','Simulação','Estratégia','Casual']
+tipos = ['Acao','Aventura','RPG','Simulacao','Estrategia','Casual']
 tipo_opcoes = [t for t in tipos if row_sis[t] in ['++','+++']]
 tipo = st.sidebar.selectbox('Tipo de Jogo', tipo_opcoes)
 
 gen_opcoes = df_generos[
     (df_generos[tipo].isin(['++','+++'])) & (df_generos[aud].isin(['++','+++']))
-]['Gênero'].tolist()
+]['Genero'].tolist()
 if not gen_opcoes:
     st.sidebar.error('Sem temas disponíveis.')
     st.stop()
@@ -82,7 +82,7 @@ botao = st.sidebar.button('Mostrar Configurações')
 st.title('Configurações de Stage')
 
 if botao:
-    rec = df_recomend[df_recomend['Gênero'] == tipo]
+    rec = df_recomend[df_recomend['Genero'] == tipo]
     if rec.empty:
         st.warning('Não há recomendações para esta combinação.')
     else:
@@ -117,7 +117,7 @@ if botao:
         # Sinergias extras abaixo das tabelas
         st.markdown('---')
         st.subheader('Sinergias do Tema Detalhado')
-        gen_row = df_generos[df_generos['Gênero'] == tema].iloc[0]
+        gen_row = df_generos[df_generos['Genero'] == tema].iloc[0]
         st.write({f'Público ({aud})': gen_row[aud], f'Tipo ({tipo})': gen_row[tipo]})
         st.subheader('Visão Geral do Sistema')
         st.write(row_sis[aud_cols + tipos])
